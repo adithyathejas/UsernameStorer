@@ -4,7 +4,7 @@ import "./ErrorBox.css";
 const ErrorBox = (props) => {
   return (
     <div>
-    <div className="backdrop">
+    <div className="backdrop" onClick={props.onClick}>
 
     </div>
     <Card className={'modal'}>
@@ -12,10 +12,10 @@ const ErrorBox = (props) => {
         <h2>{props.title}</h2>
       </header>
       <div className="content">
-        <p>{props.mesage}</p>
+        <p>{props.message}</p>
       </div>
       <footer className="actions">
-        <button>okey</button>
+        <button onClick={props.onClick}>okey</button>
       </footer>
     </Card>
     </div>

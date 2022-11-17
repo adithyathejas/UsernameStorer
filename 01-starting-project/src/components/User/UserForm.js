@@ -6,14 +6,22 @@ import ErrorBox from '../UI/ErrorBox'
 const Form = (props)=>{
     const [username,setUsername] = useState('')
     const [age,setAge] = useState('')
+    const [error,setError] = useState()
+
     const addUserHandler = (e)=>{
         e.preventDefault();
         if(username.trim().length===0||age.trim().length===0){
-           
-        }
+             setError({
+                title:"Enter Username and Age "
+                ,message:"Please enter Username and Age and  press Add User BUtton"
+             })       
+        } 
 
         else if(+age<1){
-            alert("enter valid age")
+            setError({
+                title:"Enter valid Age "
+                ,message:"Please valid Age which is greater than zero then press Add User BUtton"
+             })  
         }
         else{
             const object ={
@@ -39,22 +47,24 @@ const Form = (props)=>{
     const ageChangeHandler =(e)=>{
         setAge(e.target.value)
 
-       
-
-
     }
+
+    const errorHandler = ()=>{
+        setError(null)
+    }
+    
 
 
     return(
         <div>
-        <ErrorBox title={"enter something"}></ErrorBox>
+        {error&&<ErrorBox onClick={errorHandler} title={error.title} message={error.message}></ErrorBox>}
         <Card className="input">
                <form onSubmit={addUserHandler}  >
             <label htmlFor='username' >Username</label>
             <input name="username"id="username" type="text"  onChange={usernameChangeHandler} value={username}></input>
             <label htmlFor='age' >Age</label>
             <input id="age" type="number" onChange={ageChangeHandler} value={age}></input>
-            <button>Add User</button>
+            <button type="submit">Add User</button>
         </form>
         </Card>
         </div>

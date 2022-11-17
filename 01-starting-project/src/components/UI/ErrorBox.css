@@ -59,7 +59,7 @@
 
   }
   
-  .action button:hover {
+  .actions button:hover {
     background: rgba(0, 0, 0, 1);
     color:rgb(255, 254, 254);
   }
