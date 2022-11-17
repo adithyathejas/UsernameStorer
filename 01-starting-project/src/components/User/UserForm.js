@@ -1,20 +1,31 @@
 import { useState } from 'react';
 import './UserForm.css';
 import Card from "../UI/Card";
+import ErrorBox from '../UI/ErrorBox'
 
 const Form = (props)=>{
     const [username,setUsername] = useState('')
     const [age,setAge] = useState('')
     const addUserHandler = (e)=>{
         e.preventDefault();
-        if(username.trim().length==0||age.trim().length==0){
-            alert("enter something")
+        if(username.trim().length===0||age.trim().length===0){
+           
         }
 
         else if(+age<1){
             alert("enter valid age")
         }
+        else{
+            const object ={
+                name: username,
+                age: age,
+                id:Math.random().toString()
+    
+            }
+            props.addToScreenHandler(object)
 
+        }
+       
         setUsername('')
         setAge('')
 
@@ -35,7 +46,8 @@ const Form = (props)=>{
 
 
     return(
-       
+        <div>
+        <ErrorBox title={"enter something"}></ErrorBox>
         <Card className="input">
                <form onSubmit={addUserHandler}  >
             <label htmlFor='username' >Username</label>
@@ -45,6 +57,7 @@ const Form = (props)=>{
             <button>Add User</button>
         </form>
         </Card>
+        </div>
         
     )
 }

@@ -1,6 +1,7 @@
 import '../User/ShowOnScreen.css'
 import Card from '../UI/Card'
 
+
 const OnScreen = (props)=>{
 
     return(
@@ -8,9 +9,10 @@ const OnScreen = (props)=>{
     <ul>
         {props.users.map((user)=>{
             
-            <li>
-                {user.name}&nbsp;&nbsp;{user.age}&nbsp;years old
-            </li>
+            return (<li key={`${user.id}`}>
+                {user.name}&nbsp;&nbsp;{user.age}&nbsp;years old 
+                
+            </li>)
 
         })}
     </ul>
