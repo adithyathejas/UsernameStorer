@@ -20,7 +20,7 @@ const Form = (props)=>{
         else if(+age<1){
             setError({
                 title:"Enter valid Age "
-                ,message:"Please valid Age which is greater than zero then press Add User BUtton"
+                ,message:"Please enter valid Age which is greater than zero then press Add User BUtton"
              })  
         }
         else{
