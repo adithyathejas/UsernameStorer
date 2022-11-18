@@ -10,7 +10,7 @@ const OnScreen = (props)=>{
         {props.users.map((user)=>{
             
             return (<li key={`${user.id}`}>
-                {user.name}&nbsp;&nbsp;{user.age}&nbsp;years old 
+                {user.name}&nbsp;&nbsp;{user.age}&nbsp;years old from {user.college} 
                 
             </li>)
 
