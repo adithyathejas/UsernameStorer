@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './UserForm.css';
 import Card from "../UI/Card";
 import ErrorBox from '../UI/ErrorBox'
+import Wrapper from '../helper/Wrapper';
 
 const Form = (props)=>{
     const [username,setUsername] = useState('')
@@ -56,7 +57,7 @@ const Form = (props)=>{
 
 
     return(
-        <div>
+        <Wrapper>
         {error&&<ErrorBox onClick={errorHandler} title={error.title} message={error.message}></ErrorBox>}
         <Card className="input">
                <form onSubmit={addUserHandler}  >
@@ -67,7 +68,7 @@ const Form = (props)=>{
             <button type="submit">Add User</button>
         </form>
         </Card>
-        </div>
+        </Wrapper>
         
     )
 }

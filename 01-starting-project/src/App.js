@@ -14,10 +14,10 @@ function App() {
   }
 
   return (
-    <div>
+    <>
         <Form addToScreenHandler={addToScreenHandler}></Form>
         <OnScreen users={users} ></OnScreen>
-    </div>
+    </>
   );
 }
 
